@@ -10,49 +10,49 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    let acButton: UIButton = {
+    lazy var acButton: UIButton = {
         let button = UIButton()
         button.setTitle("AC", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .lightGray
         button.clipsToBounds = true
-        button.layer.cornerRadius = 28
+        button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
         return button
     }()
     
-    let morelessButton: UIButton = {
+    lazy var morelessButton: UIButton = {
         let button = UIButton()
         button.setTitle("+/-", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .lightGray
         button.clipsToBounds = true
-        button.layer.cornerRadius = 28
+        button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
         return button
     }()
     
-    let percentButton: UIButton = {
+    lazy var percentButton: UIButton = {
         let button = UIButton()
         button.setTitle("%", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .lightGray
         button.clipsToBounds = true
-        button.layer.cornerRadius = 28
+        button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
         return button
     }()
     
-    let dividedByButton: UIButton = {
+    lazy var dividedByButton: UIButton = {
         let button = UIButton()
         button.setTitle("/", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .orange
         button.clipsToBounds = true
-        button.layer.cornerRadius = 28
+        button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
         return button
@@ -154,25 +154,79 @@ class HomeViewController: UIViewController {
         return button
     }()
     
-    //plus = +
+    let oneButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("1", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .darkGray
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 28
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        return button
+    }()
+    
+    let twoButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("2", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .darkGray
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 28
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        return button
+    }()
+    
+    let threeButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("3", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .darkGray
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 28
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        return button
+    }()
+    
+    let plusButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("+", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .orange
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 28
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        return button
+    }()
+    
+    let buttonsSize = UIScreen.main.bounds.size.width/6
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .blue
         
+        
+        print(buttonsSize)
+        
         firstLineButtons()
         secondLineButtons()
         thirdLineButtons()
-        
-        //fourthLineButtons()
+        fourthLineButtons()
     }
     
     func firstLineButtons(){
-       let acButtonContainerView = UIView()
+        let acButtonContainerView = UIView()
+        acButtonContainerView.backgroundColor = .red
         let morelessButtonContainerView = UIView()
+        morelessButtonContainerView.backgroundColor = .yellow
         let percentButtonContainerView = UIView()
+        percentButtonContainerView.backgroundColor = .purple
         let dividedByButtonContainerView = UIView()
+        dividedByButtonContainerView.backgroundColor = .green
         
         let firstLineButtonStackView = UIStackView(arrangedSubviews: [acButtonContainerView, morelessButtonContainerView, percentButtonContainerView, dividedByButtonContainerView])
         firstLineButtonStackView.axis = .horizontal
@@ -184,8 +238,8 @@ class HomeViewController: UIViewController {
         
         firstLineButtonStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         firstLineButtonStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
-        firstLineButtonStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 20).isActive = true
-        firstLineButtonStackView.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        firstLineButtonStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        firstLineButtonStackView.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
         view.addSubview(acButton)
         view.addSubview(morelessButton)
@@ -194,23 +248,23 @@ class HomeViewController: UIViewController {
         
         acButton.leftAnchor.constraint(equalTo: acButtonContainerView.leftAnchor, constant: 0).isActive = true
         acButton.topAnchor.constraint(equalTo: acButtonContainerView.topAnchor, constant: 0).isActive = true
-        acButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
-        acButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        acButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        acButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
         morelessButton.leftAnchor.constraint(equalTo: morelessButtonContainerView.leftAnchor, constant: 0).isActive = true
         morelessButton.topAnchor.constraint(equalTo: morelessButtonContainerView.topAnchor, constant: 0).isActive = true
-        morelessButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
-        morelessButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        morelessButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        morelessButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
         percentButton.leftAnchor.constraint(equalTo: percentButtonContainerView.leftAnchor, constant: 0).isActive = true
         percentButton.topAnchor.constraint(equalTo: percentButtonContainerView.topAnchor, constant: 0).isActive = true
-        percentButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
-        percentButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        percentButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        percentButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
         dividedByButton.leftAnchor.constraint(equalTo: dividedByButtonContainerView.leftAnchor, constant: 0).isActive = true
         dividedByButton.topAnchor.constraint(equalTo: dividedByButtonContainerView.topAnchor, constant: 0).isActive = true
-        dividedByButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
-        dividedByButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        dividedByButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        dividedByButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
     }
     
     func secondLineButtons(){
@@ -301,6 +355,51 @@ class HomeViewController: UIViewController {
         minusButton.topAnchor.constraint(equalTo: minusButtonContainerView.topAnchor, constant: 0).isActive = true
         minusButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
         minusButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+    }
+    
+    func fourthLineButtons(){
+        let oneButtonContainerView = UIView()
+        let twoButtonContainerView = UIView()
+        let threeButtonContainerView = UIView()
+        let plusButtonContainerView = UIView()
+        
+        let fourthLineButtonStackView = UIStackView(arrangedSubviews: [oneButtonContainerView, twoButtonContainerView, threeButtonContainerView, plusButtonContainerView])
+        fourthLineButtonStackView.axis = .horizontal
+        fourthLineButtonStackView.distribution = .fillEqually
+        fourthLineButtonStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        view.addSubview(fourthLineButtonStackView)
+        
+        fourthLineButtonStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        fourthLineButtonStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
+        fourthLineButtonStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 20).isActive = true
+        fourthLineButtonStackView.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        
+        view.addSubview(oneButton)
+        view.addSubview(twoButton)
+        view.addSubview(threeButton)
+        view.addSubview(plusButton)
+        
+        oneButton.leftAnchor.constraint(equalTo: oneButtonContainerView.leftAnchor, constant: 0).isActive = true
+        oneButton.topAnchor.constraint(equalTo: oneButtonContainerView.topAnchor, constant: 0).isActive = true
+        oneButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
+        oneButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        
+        twoButton.leftAnchor.constraint(equalTo: twoButtonContainerView.leftAnchor, constant: 0).isActive = true
+        twoButton.topAnchor.constraint(equalTo: twoButtonContainerView.topAnchor, constant: 0).isActive = true
+        twoButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
+        twoButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        
+        threeButton.leftAnchor.constraint(equalTo: threeButtonContainerView.leftAnchor, constant: 0).isActive = true
+        threeButton.topAnchor.constraint(equalTo: threeButtonContainerView.topAnchor, constant: 0).isActive = true
+        threeButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
+        threeButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        
+        plusButton.leftAnchor.constraint(equalTo: plusButtonContainerView.leftAnchor, constant: 0).isActive = true
+        plusButton.topAnchor.constraint(equalTo: plusButtonContainerView.topAnchor, constant: 0).isActive = true
+        plusButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
+        plusButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
     }
     
     @objc func handleAcButton(){
