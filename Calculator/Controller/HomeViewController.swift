@@ -203,6 +203,42 @@ class HomeViewController: UIViewController {
         button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
         return button
     }()
+    
+    lazy var zeroButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("0", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .darkGray
+        button.clipsToBounds = true
+        button.layer.cornerRadius = self.buttonsSize/2
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var commaButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(",", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .darkGray
+        button.clipsToBounds = true
+        button.layer.cornerRadius = self.buttonsSize/2
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var equalsButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("=", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .orange
+        button.clipsToBounds = true
+        button.layer.cornerRadius = self.buttonsSize/2
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -216,6 +252,7 @@ class HomeViewController: UIViewController {
         secondLineButtons()
         thirdLineButtons()
         fourthLineButtons()
+        fifthLineButtons()
     }
     
     func firstLineButtons(){
@@ -368,7 +405,6 @@ class HomeViewController: UIViewController {
         fourthLineButtonStackView.distribution = .fillEqually
         fourthLineButtonStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        
         view.addSubview(fourthLineButtonStackView)
         
         fourthLineButtonStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
@@ -400,6 +436,51 @@ class HomeViewController: UIViewController {
         plusButton.centerYAnchor.constraint(equalTo: plusButtonContainerView.centerYAnchor).isActive = true
         plusButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         plusButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+    }
+    
+    func fifthLineButtons(){
+        
+        let zeroButtonContainerView = UIView()
+        zeroButtonContainerView.backgroundColor = .red
+        let zeroButtonContainerViewTwo = UIView()
+        zeroButtonContainerViewTwo.backgroundColor = .red
+        let commaButtonContainerView = UIView()
+        commaButtonContainerView.backgroundColor = .purple
+        let equalsButtonContainerView = UIView()
+        equalsButtonContainerView.backgroundColor = .green
+        
+        
+        let fifthLineButtonStackView = UIStackView(arrangedSubviews: [zeroButtonContainerView, zeroButtonContainerViewTwo, commaButtonContainerView, equalsButtonContainerView])
+        fifthLineButtonStackView.axis = .horizontal
+        fifthLineButtonStackView.distribution = .fillEqually
+        fifthLineButtonStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(fifthLineButtonStackView)
+        
+        fifthLineButtonStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        fifthLineButtonStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 600).isActive = true
+        fifthLineButtonStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+        fifthLineButtonStackView.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        
+        view.addSubview(zeroButton)
+        view.addSubview(commaButton)
+        view.addSubview(equalsButton)
+        
+        zeroButton.rightAnchor.constraint(equalTo: zeroButtonContainerView.rightAnchor, constant: buttonsSize+buttonsSize*0.1).isActive = true
+        zeroButton.centerYAnchor.constraint(equalTo: zeroButtonContainerView.centerYAnchor).isActive = true
+        zeroButton.widthAnchor.constraint(equalToConstant: buttonsSize*2.2).isActive = true
+        zeroButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        
+        commaButton.centerXAnchor.constraint(equalTo: commaButtonContainerView.centerXAnchor).isActive = true
+        commaButton.centerYAnchor.constraint(equalTo: commaButtonContainerView.centerYAnchor).isActive = true
+        commaButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        commaButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        
+        equalsButton.centerXAnchor.constraint(equalTo: equalsButtonContainerView.centerXAnchor).isActive = true
+        equalsButton.centerYAnchor.constraint(equalTo: equalsButtonContainerView.centerYAnchor).isActive = true
+        equalsButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        equalsButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        
     }
     
     @objc func handleAcButton(){
