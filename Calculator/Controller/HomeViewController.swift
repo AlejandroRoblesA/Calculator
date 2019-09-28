@@ -10,7 +10,14 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    let buttonsSize = UIScreen.main.bounds.size.width/6
+    let buttonsSize = UIScreen.main.bounds.size.width/5
+    
+    var contentStackView = UIStackView()
+    var firstLineButtonsStackView = UIStackView()
+    var secondLineButtonStackView = UIStackView()
+    var thirdLineButtonStackView  = UIStackView()
+    var fourthLineButtonStackView = UIStackView()
+    var fifthLineButtonStackView  = UIStackView()
     
     lazy var operationLabel: UILabel = {
         let label = UILabel()
@@ -262,6 +269,7 @@ class HomeViewController: UIViewController {
         thirdLineButtons()
         fourthLineButtons()
         fifthLineButtons()
+        setup()
     }
     
     func operationsDisplay(){
@@ -269,9 +277,9 @@ class HomeViewController: UIViewController {
         view.addSubview(operationLabel)
         
         operationLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        operationLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        operationLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 80).isActive = true
         operationLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-        operationLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        operationLabel.heightAnchor.constraint(equalToConstant: 80).isActive = true
         
     }
     
@@ -285,23 +293,24 @@ class HomeViewController: UIViewController {
         let dividedByButtonContainerView = UIView()
         dividedByButtonContainerView.backgroundColor = .green
         
-        let firstLineButtonStackView = UIStackView(arrangedSubviews: [acButtonContainerView, morelessButtonContainerView, percentButtonContainerView, dividedByButtonContainerView])
-        firstLineButtonStackView.axis = .horizontal
-        firstLineButtonStackView.distribution = .fillEqually
-        firstLineButtonStackView.translatesAutoresizingMaskIntoConstraints = false
+        firstLineButtonsStackView = UIStackView(arrangedSubviews: [acButtonContainerView, morelessButtonContainerView, percentButtonContainerView, dividedByButtonContainerView])
+        firstLineButtonsStackView.axis = .horizontal
+        firstLineButtonsStackView.distribution = .fillEqually
+        firstLineButtonsStackView.spacing = 5
+        firstLineButtonsStackView.translatesAutoresizingMaskIntoConstraints = false
         
         
-        view.addSubview(firstLineButtonStackView)
+        view.addSubview(firstLineButtonsStackView)
         
-        firstLineButtonStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        firstLineButtonStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
-        firstLineButtonStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-        firstLineButtonStackView.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        firstLineButtonsStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        firstLineButtonsStackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        firstLineButtonsStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+        firstLineButtonsStackView.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
-        view.addSubview(acButton)
-        view.addSubview(morelessButton)
-        view.addSubview(percentButton)
-        view.addSubview(dividedByButton)
+        acButtonContainerView.addSubview(acButton)
+        morelessButtonContainerView.addSubview(morelessButton)
+        percentButtonContainerView.addSubview(percentButton)
+        dividedByButtonContainerView.addSubview(dividedByButton)
         
         acButton.centerXAnchor.constraint(equalTo: acButtonContainerView.centerXAnchor).isActive = true
         acButton.centerYAnchor.constraint(equalTo: acButtonContainerView.centerYAnchor).isActive = true
@@ -330,23 +339,24 @@ class HomeViewController: UIViewController {
         let nineButtonContainerView = UIView()
         let timesButtonContainerView = UIView()
         
-        let secondLineButtonStackView = UIStackView(arrangedSubviews: [sevenButtonContainerView, eightButtonContainerView, nineButtonContainerView, timesButtonContainerView])
+        secondLineButtonStackView = UIStackView(arrangedSubviews: [sevenButtonContainerView, eightButtonContainerView, nineButtonContainerView, timesButtonContainerView])
         secondLineButtonStackView.axis = .horizontal
         secondLineButtonStackView.distribution = .fillEqually
+        secondLineButtonStackView.spacing = 5
         secondLineButtonStackView.translatesAutoresizingMaskIntoConstraints = false
         
         
         view.addSubview(secondLineButtonStackView)
         
         secondLineButtonStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        secondLineButtonStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
+        secondLineButtonStackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         secondLineButtonStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
         secondLineButtonStackView.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
-        view.addSubview(sevenButton)
-        view.addSubview(eightButton)
-        view.addSubview(nineButton)
-        view.addSubview(timesButton)
+        sevenButtonContainerView.addSubview(sevenButton)
+        eightButtonContainerView.addSubview(eightButton)
+        nineButtonContainerView.addSubview(nineButton)
+        timesButtonContainerView.addSubview(timesButton)
         
         sevenButton.centerXAnchor.constraint(equalTo: sevenButtonContainerView.centerXAnchor).isActive = true
         sevenButton.centerYAnchor.constraint(equalTo: sevenButtonContainerView.centerYAnchor).isActive = true
@@ -375,23 +385,24 @@ class HomeViewController: UIViewController {
         let sixButtonContainerView = UIView()
         let minusButtonContainerView = UIView()
         
-        let thirdLineButtonStackView = UIStackView(arrangedSubviews: [fourButtonContainerView, fiveButtonContainerView, sixButtonContainerView, minusButtonContainerView])
+        thirdLineButtonStackView = UIStackView(arrangedSubviews: [fourButtonContainerView, fiveButtonContainerView, sixButtonContainerView, minusButtonContainerView])
         thirdLineButtonStackView.axis = .horizontal
         thirdLineButtonStackView.distribution = .fillEqually
+        thirdLineButtonStackView.spacing = 5
         thirdLineButtonStackView.translatesAutoresizingMaskIntoConstraints = false
         
         
         view.addSubview(thirdLineButtonStackView)
         
         thirdLineButtonStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        thirdLineButtonStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
+        thirdLineButtonStackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         thirdLineButtonStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
         thirdLineButtonStackView.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
-        view.addSubview(fourButton)
-        view.addSubview(fiveButton)
-        view.addSubview(sixButton)
-        view.addSubview(minusButton)
+        fourButtonContainerView.addSubview(fourButton)
+        fiveButtonContainerView.addSubview(fiveButton)
+        sixButtonContainerView.addSubview(sixButton)
+        minusButtonContainerView.addSubview(minusButton)
         
         fourButton.centerXAnchor.constraint(equalTo: fourButtonContainerView.centerXAnchor).isActive = true
         fourButton.centerYAnchor.constraint(equalTo: fourButtonContainerView.centerYAnchor).isActive = true
@@ -420,22 +431,23 @@ class HomeViewController: UIViewController {
         let threeButtonContainerView = UIView()
         let plusButtonContainerView = UIView()
         
-        let fourthLineButtonStackView = UIStackView(arrangedSubviews: [oneButtonContainerView, twoButtonContainerView, threeButtonContainerView, plusButtonContainerView])
+        fourthLineButtonStackView = UIStackView(arrangedSubviews: [oneButtonContainerView, twoButtonContainerView, threeButtonContainerView, plusButtonContainerView])
         fourthLineButtonStackView.axis = .horizontal
         fourthLineButtonStackView.distribution = .fillEqually
+        firstLineButtonsStackView.spacing = 5
         fourthLineButtonStackView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(fourthLineButtonStackView)
         
         fourthLineButtonStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        fourthLineButtonStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
+        fourthLineButtonStackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         fourthLineButtonStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
         fourthLineButtonStackView.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
-        view.addSubview(oneButton)
-        view.addSubview(twoButton)
-        view.addSubview(threeButton)
-        view.addSubview(plusButton)
+        oneButtonContainerView.addSubview(oneButton)
+        twoButtonContainerView.addSubview(twoButton)
+        threeButtonContainerView.addSubview(threeButton)
+        plusButtonContainerView.addSubview(plusButton)
         
         oneButton.centerXAnchor.constraint(equalTo: oneButtonContainerView.centerXAnchor).isActive = true
         oneButton.centerYAnchor.constraint(equalTo: oneButtonContainerView.centerYAnchor).isActive = true
@@ -470,23 +482,24 @@ class HomeViewController: UIViewController {
         equalsButtonContainerView.backgroundColor = .green
         
         
-        let fifthLineButtonStackView = UIStackView(arrangedSubviews: [zeroButtonContainerView, zeroButtonContainerViewTwo, commaButtonContainerView, equalsButtonContainerView])
+        fifthLineButtonStackView = UIStackView(arrangedSubviews: [zeroButtonContainerView, zeroButtonContainerViewTwo, commaButtonContainerView, equalsButtonContainerView])
         fifthLineButtonStackView.axis = .horizontal
         fifthLineButtonStackView.distribution = .fillEqually
+        fifthLineButtonStackView.spacing = 5
         fifthLineButtonStackView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(fifthLineButtonStackView)
         
         fifthLineButtonStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        fifthLineButtonStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 600).isActive = true
+        fifthLineButtonStackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         fifthLineButtonStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
         fifthLineButtonStackView.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
-        view.addSubview(zeroButton)
-        view.addSubview(commaButton)
-        view.addSubview(equalsButton)
+        zeroButtonContainerViewTwo.addSubview(zeroButton)
+        commaButtonContainerView.addSubview(commaButton)
+        equalsButtonContainerView.addSubview(equalsButton)
         
-        zeroButton.rightAnchor.constraint(equalTo: zeroButtonContainerView.rightAnchor, constant: buttonsSize+buttonsSize*0.1).isActive = true
+        zeroButton.rightAnchor.constraint(equalTo: zeroButtonContainerView.rightAnchor, constant: buttonsSize+buttonsSize*0.1+2.5).isActive = true
         zeroButton.centerYAnchor.constraint(equalTo: zeroButtonContainerView.centerYAnchor).isActive = true
         zeroButton.widthAnchor.constraint(equalToConstant: buttonsSize*2.2).isActive = true
         zeroButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
@@ -501,6 +514,22 @@ class HomeViewController: UIViewController {
         equalsButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         equalsButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
+    }
+    
+    func setup(){
+        
+        contentStackView = UIStackView(arrangedSubviews: [firstLineButtonsStackView, secondLineButtonStackView, thirdLineButtonStackView, fourthLineButtonStackView, fifthLineButtonStackView])
+        contentStackView.axis = .vertical
+        contentStackView.distribution = .fillEqually
+        contentStackView.spacing = 15
+        contentStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(contentStackView)
+        
+        contentStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        contentStackView.topAnchor.constraint(equalTo: operationLabel.bottomAnchor, constant: 50).isActive = true
+        contentStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+        //contentStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
     }
     
     @objc func handleAcButton(){
