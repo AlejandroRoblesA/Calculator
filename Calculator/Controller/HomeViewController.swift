@@ -10,6 +10,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    let buttonsSize = UIScreen.main.bounds.size.width/6
+    
     lazy var acButton: UIButton = {
         let button = UIButton()
         button.setTitle("AC", for: .normal)
@@ -58,151 +60,149 @@ class HomeViewController: UIViewController {
         return button
     }()
     
-    let sevenButton: UIButton = {
+    lazy var sevenButton: UIButton = {
         let button = UIButton()
         button.setTitle("7", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .darkGray
         button.clipsToBounds = true
-        button.layer.cornerRadius = 28
+        button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
         return button
     }()
     
-    let eightButton: UIButton = {
+    lazy var eightButton: UIButton = {
         let button = UIButton()
         button.setTitle("8", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .darkGray
         button.clipsToBounds = true
-        button.layer.cornerRadius = 28
+        button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
         return button
     }()
     
-    let nineButton: UIButton = {
+    lazy var nineButton: UIButton = {
         let button = UIButton()
         button.setTitle("9", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .darkGray
         button.clipsToBounds = true
-        button.layer.cornerRadius = 28
+        button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
         return button
     }()
     
-    let timesButton: UIButton = {
+    lazy var timesButton: UIButton = {
         let button = UIButton()
         button.setTitle("x", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .orange
         button.clipsToBounds = true
-        button.layer.cornerRadius = 28
+        button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
         return button
     }()
     
-    let fourButton: UIButton = {
+    lazy var fourButton: UIButton = {
         let button = UIButton()
         button.setTitle("4", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .darkGray
         button.clipsToBounds = true
-        button.layer.cornerRadius = 28
+        button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
         return button
     }()
     
-    let fiveButton: UIButton = {
+    lazy var fiveButton: UIButton = {
         let button = UIButton()
         button.setTitle("5", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .darkGray
         button.clipsToBounds = true
-        button.layer.cornerRadius = 28
+        button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
         return button
     }()
     
-    let sixButton: UIButton = {
+    lazy var sixButton: UIButton = {
         let button = UIButton()
         button.setTitle("6", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .darkGray
         button.clipsToBounds = true
-        button.layer.cornerRadius = 28
+        button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
         return button
     }()
     
-    let minusButton: UIButton = {
+    lazy var minusButton: UIButton = {
         let button = UIButton()
         button.setTitle("-", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .orange
         button.clipsToBounds = true
-        button.layer.cornerRadius = 28
+        button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
         return button
     }()
     
-    let oneButton: UIButton = {
+    lazy var oneButton: UIButton = {
         let button = UIButton()
         button.setTitle("1", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .darkGray
         button.clipsToBounds = true
-        button.layer.cornerRadius = 28
+        button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
         return button
     }()
     
-    let twoButton: UIButton = {
+    lazy var twoButton: UIButton = {
         let button = UIButton()
         button.setTitle("2", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .darkGray
         button.clipsToBounds = true
-        button.layer.cornerRadius = 28
+        button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
         return button
     }()
     
-    let threeButton: UIButton = {
+    lazy var threeButton: UIButton = {
         let button = UIButton()
         button.setTitle("3", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .darkGray
         button.clipsToBounds = true
-        button.layer.cornerRadius = 28
+        button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
         return button
     }()
     
-    let plusButton: UIButton = {
+    lazy var plusButton: UIButton = {
         let button = UIButton()
         button.setTitle("+", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .orange
         button.clipsToBounds = true
-        button.layer.cornerRadius = 28
+        button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
         return button
     }()
-    
-    let buttonsSize = UIScreen.main.bounds.size.width/6
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -238,7 +238,7 @@ class HomeViewController: UIViewController {
         
         firstLineButtonStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         firstLineButtonStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
-        firstLineButtonStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        firstLineButtonStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
         firstLineButtonStackView.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
         view.addSubview(acButton)
@@ -246,23 +246,23 @@ class HomeViewController: UIViewController {
         view.addSubview(percentButton)
         view.addSubview(dividedByButton)
         
-        acButton.leftAnchor.constraint(equalTo: acButtonContainerView.leftAnchor, constant: 0).isActive = true
-        acButton.topAnchor.constraint(equalTo: acButtonContainerView.topAnchor, constant: 0).isActive = true
+        acButton.centerXAnchor.constraint(equalTo: acButtonContainerView.centerXAnchor).isActive = true
+        acButton.centerYAnchor.constraint(equalTo: acButtonContainerView.centerYAnchor).isActive = true
         acButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         acButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
-        morelessButton.leftAnchor.constraint(equalTo: morelessButtonContainerView.leftAnchor, constant: 0).isActive = true
-        morelessButton.topAnchor.constraint(equalTo: morelessButtonContainerView.topAnchor, constant: 0).isActive = true
+        morelessButton.centerXAnchor.constraint(equalTo: morelessButtonContainerView.centerXAnchor).isActive = true
+        morelessButton.centerYAnchor.constraint(equalTo: morelessButtonContainerView.centerYAnchor).isActive = true
         morelessButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         morelessButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
-        percentButton.leftAnchor.constraint(equalTo: percentButtonContainerView.leftAnchor, constant: 0).isActive = true
-        percentButton.topAnchor.constraint(equalTo: percentButtonContainerView.topAnchor, constant: 0).isActive = true
+        percentButton.centerXAnchor.constraint(equalTo: percentButtonContainerView.centerXAnchor).isActive = true
+        percentButton.centerYAnchor.constraint(equalTo: percentButtonContainerView.centerYAnchor).isActive = true
         percentButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         percentButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
-        dividedByButton.leftAnchor.constraint(equalTo: dividedByButtonContainerView.leftAnchor, constant: 0).isActive = true
-        dividedByButton.topAnchor.constraint(equalTo: dividedByButtonContainerView.topAnchor, constant: 0).isActive = true
+        dividedByButton.centerXAnchor.constraint(equalTo: dividedByButtonContainerView.centerXAnchor).isActive = true
+        dividedByButton.centerYAnchor.constraint(equalTo: dividedByButtonContainerView.centerYAnchor).isActive = true
         dividedByButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         dividedByButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
     }
@@ -283,33 +283,33 @@ class HomeViewController: UIViewController {
         
         secondLineButtonStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         secondLineButtonStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
-        secondLineButtonStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 20).isActive = true
-        secondLineButtonStackView.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        secondLineButtonStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+        secondLineButtonStackView.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
         view.addSubview(sevenButton)
         view.addSubview(eightButton)
         view.addSubview(nineButton)
         view.addSubview(timesButton)
         
-        sevenButton.leftAnchor.constraint(equalTo: sevenButtonContainerView.leftAnchor, constant: 0).isActive = true
-        sevenButton.topAnchor.constraint(equalTo: sevenButtonContainerView.topAnchor, constant: 0).isActive = true
-        sevenButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
-        sevenButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        sevenButton.centerXAnchor.constraint(equalTo: sevenButtonContainerView.centerXAnchor).isActive = true
+        sevenButton.centerYAnchor.constraint(equalTo: sevenButtonContainerView.centerYAnchor).isActive = true
+        sevenButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        sevenButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
-        eightButton.leftAnchor.constraint(equalTo: eightButtonContainerView.leftAnchor, constant: 0).isActive = true
-        eightButton.topAnchor.constraint(equalTo: eightButtonContainerView.topAnchor, constant: 0).isActive = true
-        eightButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
-        eightButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        eightButton.centerXAnchor.constraint(equalTo: eightButtonContainerView.centerXAnchor).isActive = true
+        eightButton.centerYAnchor.constraint(equalTo: eightButtonContainerView.centerYAnchor).isActive = true
+        eightButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        eightButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
-        nineButton.leftAnchor.constraint(equalTo: nineButtonContainerView.leftAnchor, constant: 0).isActive = true
-        nineButton.topAnchor.constraint(equalTo: nineButtonContainerView.topAnchor, constant: 0).isActive = true
-        nineButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
-        nineButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        nineButton.centerXAnchor.constraint(equalTo: nineButtonContainerView.centerXAnchor).isActive = true
+        nineButton.centerYAnchor.constraint(equalTo: nineButtonContainerView.centerYAnchor).isActive = true
+        nineButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        nineButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
-        timesButton.leftAnchor.constraint(equalTo: timesButtonContainerView.leftAnchor, constant: 0).isActive = true
-        timesButton.topAnchor.constraint(equalTo: timesButtonContainerView.topAnchor, constant: 0).isActive = true
-        timesButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
-        timesButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        timesButton.centerXAnchor.constraint(equalTo: timesButtonContainerView.centerXAnchor).isActive = true
+        timesButton.centerYAnchor.constraint(equalTo: timesButtonContainerView.centerYAnchor).isActive = true
+        timesButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        timesButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
     }
     
     func thirdLineButtons(){
@@ -328,33 +328,33 @@ class HomeViewController: UIViewController {
         
         thirdLineButtonStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         thirdLineButtonStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
-        thirdLineButtonStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 20).isActive = true
-        thirdLineButtonStackView.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        thirdLineButtonStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+        thirdLineButtonStackView.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
         view.addSubview(fourButton)
         view.addSubview(fiveButton)
         view.addSubview(sixButton)
         view.addSubview(minusButton)
         
-        fourButton.leftAnchor.constraint(equalTo: fourButtonContainerView.leftAnchor, constant: 0).isActive = true
-        fourButton.topAnchor.constraint(equalTo: fourButtonContainerView.topAnchor, constant: 0).isActive = true
-        fourButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
-        fourButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        fourButton.centerXAnchor.constraint(equalTo: fourButtonContainerView.centerXAnchor).isActive = true
+        fourButton.centerYAnchor.constraint(equalTo: fourButtonContainerView.centerYAnchor).isActive = true
+        fourButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        fourButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
-        fiveButton.leftAnchor.constraint(equalTo: fiveButtonContainerView.leftAnchor, constant: 0).isActive = true
-        fiveButton.topAnchor.constraint(equalTo: fiveButtonContainerView.topAnchor, constant: 0).isActive = true
-        fiveButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
-        fiveButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        fiveButton.centerXAnchor.constraint(equalTo: fiveButtonContainerView.centerXAnchor).isActive = true
+        fiveButton.centerYAnchor.constraint(equalTo: fiveButtonContainerView.centerYAnchor).isActive = true
+        fiveButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        fiveButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
-        sixButton.leftAnchor.constraint(equalTo: sixButtonContainerView.leftAnchor, constant: 0).isActive = true
-        sixButton.topAnchor.constraint(equalTo: sixButtonContainerView.topAnchor, constant: 0).isActive = true
-        sixButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
-        sixButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        sixButton.centerXAnchor.constraint(equalTo: sixButtonContainerView.centerXAnchor).isActive = true
+        sixButton.centerYAnchor.constraint(equalTo: sixButtonContainerView.centerYAnchor).isActive = true
+        sixButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        sixButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
-        minusButton.leftAnchor.constraint(equalTo: minusButtonContainerView.leftAnchor, constant: 0).isActive = true
-        minusButton.topAnchor.constraint(equalTo: minusButtonContainerView.topAnchor, constant: 0).isActive = true
-        minusButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
-        minusButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        minusButton.centerXAnchor.constraint(equalTo: minusButtonContainerView.centerXAnchor).isActive = true
+        minusButton.centerYAnchor.constraint(equalTo: minusButtonContainerView.centerYAnchor).isActive = true
+        minusButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        minusButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
     }
     
     func fourthLineButtons(){
@@ -373,33 +373,33 @@ class HomeViewController: UIViewController {
         
         fourthLineButtonStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         fourthLineButtonStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
-        fourthLineButtonStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 20).isActive = true
-        fourthLineButtonStackView.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        fourthLineButtonStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+        fourthLineButtonStackView.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
         view.addSubview(oneButton)
         view.addSubview(twoButton)
         view.addSubview(threeButton)
         view.addSubview(plusButton)
         
-        oneButton.leftAnchor.constraint(equalTo: oneButtonContainerView.leftAnchor, constant: 0).isActive = true
-        oneButton.topAnchor.constraint(equalTo: oneButtonContainerView.topAnchor, constant: 0).isActive = true
-        oneButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
-        oneButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        oneButton.centerXAnchor.constraint(equalTo: oneButtonContainerView.centerXAnchor).isActive = true
+        oneButton.centerYAnchor.constraint(equalTo: oneButtonContainerView.centerYAnchor).isActive = true
+        oneButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        oneButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
-        twoButton.leftAnchor.constraint(equalTo: twoButtonContainerView.leftAnchor, constant: 0).isActive = true
-        twoButton.topAnchor.constraint(equalTo: twoButtonContainerView.topAnchor, constant: 0).isActive = true
-        twoButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
-        twoButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        twoButton.centerXAnchor.constraint(equalTo: twoButtonContainerView.centerXAnchor).isActive = true
+        twoButton.centerYAnchor.constraint(equalTo: twoButtonContainerView.centerYAnchor).isActive = true
+        twoButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        twoButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
-        threeButton.leftAnchor.constraint(equalTo: threeButtonContainerView.leftAnchor, constant: 0).isActive = true
-        threeButton.topAnchor.constraint(equalTo: threeButtonContainerView.topAnchor, constant: 0).isActive = true
-        threeButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
-        threeButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        threeButton.centerXAnchor.constraint(equalTo: threeButtonContainerView.centerXAnchor).isActive = true
+        threeButton.centerYAnchor.constraint(equalTo: threeButtonContainerView.centerYAnchor).isActive = true
+        threeButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        threeButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
         
-        plusButton.leftAnchor.constraint(equalTo: plusButtonContainerView.leftAnchor, constant: 0).isActive = true
-        plusButton.topAnchor.constraint(equalTo: plusButtonContainerView.topAnchor, constant: 0).isActive = true
-        plusButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
-        plusButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        plusButton.centerXAnchor.constraint(equalTo: plusButtonContainerView.centerXAnchor).isActive = true
+        plusButton.centerYAnchor.constraint(equalTo: plusButtonContainerView.centerYAnchor).isActive = true
+        plusButton.widthAnchor.constraint(equalToConstant: buttonsSize).isActive = true
+        plusButton.heightAnchor.constraint(equalToConstant: buttonsSize).isActive = true
     }
     
     @objc func handleAcButton(){
