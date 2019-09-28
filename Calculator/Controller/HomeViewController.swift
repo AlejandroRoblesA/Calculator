@@ -12,6 +12,17 @@ class HomeViewController: UIViewController {
     
     let buttonsSize = UIScreen.main.bounds.size.width/6
     
+    lazy var operationLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 60, weight: .medium)
+        label.textAlignment = .right
+        label.backgroundColor = .black
+        label.text = "0"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     lazy var acButton: UIButton = {
         let button = UIButton()
         button.setTitle("AC", for: .normal)
@@ -245,14 +256,23 @@ class HomeViewController: UIViewController {
         
         view.backgroundColor = .blue
         
-        
-        print(buttonsSize)
-        
+        operationsDisplay()
         firstLineButtons()
         secondLineButtons()
         thirdLineButtons()
         fourthLineButtons()
         fifthLineButtons()
+    }
+    
+    func operationsDisplay(){
+        
+        view.addSubview(operationLabel)
+        
+        operationLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        operationLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        operationLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+        operationLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
     }
     
     func firstLineButtons(){
