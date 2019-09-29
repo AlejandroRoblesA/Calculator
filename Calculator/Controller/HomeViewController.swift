@@ -10,7 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    let buttonsSize = UIScreen.main.bounds.size.width/5
+    let buttonsSize = UIScreen.main.bounds.size.width/5.5
     
     var contentStackView = UIStackView()
     var firstLineButtonsStackView = UIStackView()
@@ -19,10 +19,13 @@ class HomeViewController: UIViewController {
     var fourthLineButtonStackView = UIStackView()
     var fifthLineButtonStackView  = UIStackView()
     
+    let darkGrayColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+    let orangeColor = UIColor(red: 254/255, green: 148/255, blue: 0, alpha: 1)
+    
     lazy var operationLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 60, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 70, weight: .medium)
         label.textAlignment = .right
         label.backgroundColor = .black
         label.text = "0"
@@ -34,6 +37,7 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("AC", for: .normal)
         button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         button.backgroundColor = .lightGray
         button.clipsToBounds = true
         button.layer.cornerRadius = self.buttonsSize/2
@@ -46,11 +50,12 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("+/-", for: .normal)
         button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         button.backgroundColor = .lightGray
         button.clipsToBounds = true
         button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handlePlusMinusButton), for: .touchUpInside)
         return button
     }()
     
@@ -58,11 +63,12 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("%", for: .normal)
         button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         button.backgroundColor = .lightGray
         button.clipsToBounds = true
         button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handlePercentButton), for: .touchUpInside)
         return button
     }()
     
@@ -70,11 +76,12 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("/", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .orange
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        button.backgroundColor = orangeColor
         button.clipsToBounds = true
         button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleDivisionButton), for: .touchUpInside)
         return button
     }()
     
@@ -82,11 +89,13 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("7", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        button.backgroundColor = darkGrayColor
         button.clipsToBounds = true
         button.layer.cornerRadius = self.buttonsSize/2
+        button.tag = 7
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleNumbersButton), for: .touchUpInside)
         return button
     }()
     
@@ -94,11 +103,13 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("8", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        button.backgroundColor = darkGrayColor
         button.clipsToBounds = true
         button.layer.cornerRadius = self.buttonsSize/2
+        button.tag = 8
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleNumbersButton), for: .touchUpInside)
         return button
     }()
     
@@ -106,11 +117,13 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("9", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        button.backgroundColor = darkGrayColor
         button.clipsToBounds = true
         button.layer.cornerRadius = self.buttonsSize/2
+        button.tag = 9
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleNumbersButton), for: .touchUpInside)
         return button
     }()
     
@@ -118,11 +131,12 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("x", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .orange
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        button.backgroundColor = orangeColor
         button.clipsToBounds = true
         button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleMultiplicationButton), for: .touchUpInside)
         return button
     }()
     
@@ -130,11 +144,13 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("4", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        button.backgroundColor = darkGrayColor
         button.clipsToBounds = true
+        button.tag = 4
         button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleNumbersButton), for: .touchUpInside)
         return button
     }()
     
@@ -142,11 +158,13 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("5", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        button.backgroundColor = darkGrayColor
         button.clipsToBounds = true
+        button.tag = 5
         button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleNumbersButton), for: .touchUpInside)
         return button
     }()
     
@@ -154,11 +172,13 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("6", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        button.backgroundColor = darkGrayColor
         button.clipsToBounds = true
+        button.tag = 6
         button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleNumbersButton), for: .touchUpInside)
         return button
     }()
     
@@ -166,11 +186,12 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("-", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .orange
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        button.backgroundColor = orangeColor
         button.clipsToBounds = true
         button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleSubstractionButton), for: .touchUpInside)
         return button
     }()
     
@@ -178,11 +199,13 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("1", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        button.backgroundColor = darkGrayColor
         button.clipsToBounds = true
         button.layer.cornerRadius = self.buttonsSize/2
+        button.tag = 1
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleNumbersButton), for: .touchUpInside)
         return button
     }()
     
@@ -190,11 +213,13 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("2", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        button.backgroundColor = darkGrayColor
         button.clipsToBounds = true
         button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        button.tag = 2
+        button.addTarget(self, action: #selector(handleNumbersButton), for: .touchUpInside)
         return button
     }()
     
@@ -202,11 +227,13 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("3", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        button.backgroundColor = darkGrayColor
         button.clipsToBounds = true
+        button.tag = 3
         button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleNumbersButton), for: .touchUpInside)
         return button
     }()
     
@@ -214,11 +241,12 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("+", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .orange
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        button.backgroundColor = orangeColor
         button.clipsToBounds = true
         button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleAdditionButton), for: .touchUpInside)
         return button
     }()
     
@@ -226,11 +254,13 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("0", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        button.backgroundColor = darkGrayColor
         button.clipsToBounds = true
         button.layer.cornerRadius = self.buttonsSize/2
+        button.tag = 0
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleNumbersButton), for: .touchUpInside)
         return button
     }()
     
@@ -238,11 +268,12 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle(",", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .darkGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        button.backgroundColor = darkGrayColor
         button.clipsToBounds = true
         button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleCommaButton), for: .touchUpInside)
         return button
     }()
     
@@ -250,18 +281,19 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("=", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .orange
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        button.backgroundColor = orangeColor
         button.clipsToBounds = true
         button.layer.cornerRadius = self.buttonsSize/2
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleAcButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleResultButton), for: .touchUpInside)
         return button
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .blue
+        view.backgroundColor = .black
         
         operationsDisplay()
         firstLineButtons()
@@ -285,13 +317,9 @@ class HomeViewController: UIViewController {
     
     func firstLineButtons(){
         let acButtonContainerView = UIView()
-        acButtonContainerView.backgroundColor = .red
         let morelessButtonContainerView = UIView()
-        morelessButtonContainerView.backgroundColor = .yellow
         let percentButtonContainerView = UIView()
-        percentButtonContainerView.backgroundColor = .purple
         let dividedByButtonContainerView = UIView()
-        dividedByButtonContainerView.backgroundColor = .green
         
         firstLineButtonsStackView = UIStackView(arrangedSubviews: [acButtonContainerView, morelessButtonContainerView, percentButtonContainerView, dividedByButtonContainerView])
         firstLineButtonsStackView.axis = .horizontal
@@ -473,14 +501,9 @@ class HomeViewController: UIViewController {
     func fifthLineButtons(){
         
         let zeroButtonContainerView = UIView()
-        zeroButtonContainerView.backgroundColor = .red
         let zeroButtonContainerViewTwo = UIView()
-        zeroButtonContainerViewTwo.backgroundColor = .red
         let commaButtonContainerView = UIView()
-        commaButtonContainerView.backgroundColor = .purple
         let equalsButtonContainerView = UIView()
-        equalsButtonContainerView.backgroundColor = .green
-        
         
         fifthLineButtonStackView = UIStackView(arrangedSubviews: [zeroButtonContainerView, zeroButtonContainerViewTwo, commaButtonContainerView, equalsButtonContainerView])
         fifthLineButtonStackView.axis = .horizontal
@@ -527,13 +550,40 @@ class HomeViewController: UIViewController {
         view.addSubview(contentStackView)
         
         contentStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        contentStackView.topAnchor.constraint(equalTo: operationLabel.bottomAnchor, constant: 50).isActive = true
+        //contentStackView.topAnchor.constraint(equalTo: operationLabel.bottomAnchor, constant: 40).isActive = true
         contentStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-        //contentStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
+        contentStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60).isActive = true
     }
     
     @objc func handleAcButton(){
         print("AC")
+    }
+    @objc func handlePlusMinusButton(){
+        print("+/-")
+    }
+    @objc func handlePercentButton(){
+        print("%")
+    }
+    @objc func handleDivisionButton(){
+        print("/")
+    }
+    @objc func handleMultiplicationButton(){
+        print("x")
+    }
+    @objc func handleAdditionButton(){
+        print("+")
+    }
+    @objc func handleResultButton(){
+        print("=")
+    }
+    @objc func handleCommaButton(){
+        print(",")
+    }
+    @objc func handleSubstractionButton(){
+        print("-")
+    }
+    @objc func handleNumbersButton(sender: UIButton){
+        print(sender.tag)
     }
 }
 
