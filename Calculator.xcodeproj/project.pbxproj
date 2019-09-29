@@ -8,19 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		A91437DF23404C7B00D893C1 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91437DE23404C7B00D893C1 /* UIButtonExtension.swift */; };
+		A91437E1234054F900D893C1 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91437E0234054F900D893C1 /* HomeController.swift */; };
 		A91EBF75233C7B7900588CD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EBF74233C7B7900588CD4 /* AppDelegate.swift */; };
 		A91EBF77233C7B7900588CD4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EBF76233C7B7900588CD4 /* SceneDelegate.swift */; };
-		A91EBF79233C7B7900588CD4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EBF78233C7B7900588CD4 /* HomeViewController.swift */; };
+		A91EBF79233C7B7900588CD4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EBF78233C7B7900588CD4 /* HomeView.swift */; };
 		A91EBF7E233C7B8200588CD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91EBF7D233C7B8200588CD4 /* Assets.xcassets */; };
 		A91EBF81233C7B8200588CD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91EBF7F233C7B8200588CD4 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A91437DE23404C7B00D893C1 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		A91437E0234054F900D893C1 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		A91EBF71233C7B7900588CD4 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91EBF74233C7B7900588CD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A91EBF76233C7B7900588CD4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A91EBF78233C7B7900588CD4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A91EBF78233C7B7900588CD4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A91EBF7D233C7B8200588CD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A91EBF80233C7B8200588CD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A91EBF82233C7B8200588CD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,6 +42,7 @@
 		A91D685A233DCEAE00A60A14 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A91EBF78233C7B7900588CD4 /* HomeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -85,7 +88,7 @@
 		A91EBFA9233C884200588CD4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A91EBF78233C7B7900588CD4 /* HomeViewController.swift */,
+				A91437E0234054F900D893C1 /* HomeController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -193,9 +196,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A91EBF79233C7B7900588CD4 /* HomeViewController.swift in Sources */,
+				A91EBF79233C7B7900588CD4 /* HomeView.swift in Sources */,
 				A91437DF23404C7B00D893C1 /* UIButtonExtension.swift in Sources */,
 				A91EBF75233C7B7900588CD4 /* AppDelegate.swift in Sources */,
+				A91437E1234054F900D893C1 /* HomeController.swift in Sources */,
 				A91EBF77233C7B7900588CD4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

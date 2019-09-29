@@ -12,6 +12,17 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    var total    : Double        = 0
+    var temp     : Double        = 0
+    var operating: Bool          = false
+    var decimal  : Bool          = false
+    var operation: OperationType = .none
+    
+    enum OperationType {
+        case none, addition, substraction, multiplication, division, percent
+    }
+    
+    
     let buttonsSize = UIScreen.main.bounds.size.width/5.5
     
     var contentStackView = UIStackView()
@@ -272,20 +283,6 @@ class HomeViewController: UIViewController {
         button.addTarget(self, action: #selector(handleResultButton), for: .touchUpInside)
         return button
     }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        view.backgroundColor = .black
-
-        operationsDisplay()
-        firstLineButtons()
-        secondLineButtons()
-        thirdLineButtons()
-        fourthLineButtons()
-        fifthLineButtons()
-        setup()
-    }
     
     func operationsDisplay(){
         
@@ -297,6 +294,8 @@ class HomeViewController: UIViewController {
         operationLabel.heightAnchor.constraint(equalToConstant: 80).isActive = true
         
     }
+    
+    
     
     func firstLineButtons(){
         let acButtonContainerView = UIView()
@@ -536,47 +535,6 @@ class HomeViewController: UIViewController {
         //contentStackView.topAnchor.constraint(equalTo: operationLabel.bottomAnchor, constant: 40).isActive = true
         contentStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
         contentStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60).isActive = true
-    }
-    
-    @objc func handleAcButton(sender: UIButton){
-        sender.shine()
-        print("AC")
-    }
-    @objc func handlePlusMinusButton(sender: UIButton){
-        sender.shine()
-        print("+/-")
-    }
-    @objc func handlePercentButton(sender: UIButton){
-        sender.shine()
-        print("%")
-    }
-    @objc func handleDivisionButton(sender: UIButton){
-        sender.shine()
-        print("/")
-    }
-    @objc func handleMultiplicationButton(sender: UIButton){
-        sender.shine()
-        print("x")
-    }
-    @objc func handleAdditionButton(sender: UIButton){
-        sender.shine()
-        print("+")
-    }
-    @objc func handleResultButton(sender: UIButton){
-        sender.shine()
-        print("=")
-    }
-    @objc func handleCommaButton(sender: UIButton){
-        sender.shine()
-        print(",")
-    }
-    @objc func handleSubstractionButton(sender: UIButton){
-        sender.shine()
-        print("-")
-    }
-    @objc func handleNumbersButton(sender: UIButton){
-        sender.shine()
-        print(sender.tag)
     }
 }
 
