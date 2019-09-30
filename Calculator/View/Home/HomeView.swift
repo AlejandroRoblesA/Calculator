@@ -12,16 +12,46 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    //MARK: - Variables
     var total    : Double        = 0
     var temp     : Double        = 0
     var operating: Bool          = false
     var decimal  : Bool          = false
     var operation: OperationType = .none
     
+    //MARK: - Constantes
+    let decimalSeparator = Locale.current.decimalSeparator!
+    let maxLenght = 9
+    let maxValue: Double = 999999999
+    let minValue: Double = 0.00000001
+    
+    //MARK: - Formateo de valores auxiliar
+    let auxFormater: NumberFormatter = {
+        let formatter = NumberFormatter()
+        let locale = Locale.current
+        formatter.groupingSeparator = ""
+        formatter.decimalSeparator = locale.decimalSeparator
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
+    
+    //MARK: - Formateo de valores por pantalla por defecto
+    let printFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        let locale = Locale.current
+        formatter.groupingSeparator = locale.groupingSeparator
+        formatter.decimalSeparator = locale.decimalSeparator
+        formatter.numberStyle = .decimal
+        formatter.maximumIntegerDigits = 9
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 8
+        return formatter
+    }()
+    
+    
     enum OperationType {
         case none, addition, substraction, multiplication, division, percent
     }
-    
     
     let buttonsSize = UIScreen.main.bounds.size.width/5.5
     

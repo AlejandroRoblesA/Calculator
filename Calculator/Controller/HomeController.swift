@@ -22,6 +22,8 @@ extension HomeViewController{
         fourthLineButtons()
         fifthLineButtons()
         setup()
+        
+        commaButton.setTitle(decimalSeparator, for: .normal)
     }
     
     @objc func handleAcButton(sender: UIButton){
