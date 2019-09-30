@@ -28,40 +28,62 @@ extension HomeViewController{
     }
     
     @objc func handleAcButton(sender: UIButton){
+        clear()
         sender.shine()
-        print("AC")
     }
     @objc func handlePlusMinusButton(sender: UIButton){
+        
+        temp = temp * -1
+        operationLabel.text = printFormatter.string(from: NSNumber(value: temp))
         sender.shine()
-        print("+/-")
+        
     }
     @objc func handlePercentButton(sender: UIButton){
+        
+        if operation != .percent{
+            result()
+        }
+        operating = true
+        operation = .percent
+        result()
         sender.shine()
-        print("%")
     }
     @objc func handleDivisionButton(sender: UIButton){
+        result()
+        operating = true
+        operation = .division
         sender.shine()
-        print("/")
     }
     @objc func handleMultiplicationButton(sender: UIButton){
+        result()
+        operating = true
+        operation = .multiplication
         sender.shine()
-        print("x")
     }
     @objc func handleAdditionButton(sender: UIButton){
+        result()
+        operating = true
+        operation = .addition
         sender.shine()
-        print("+")
     }
     @objc func handleResultButton(sender: UIButton){
+        result()
         sender.shine()
-        print("=")
     }
     @objc func handleCommaButton(sender: UIButton){
+        let currentTemp = auxFormater.string(from: NSNumber(value: temp))!
+        if (!operating && currentTemp.count >= maxLenght){
+            return
+        }
+        operationLabel.text = operationLabel.text! + decimalSeparator
+        decimal = true
         sender.shine()
-        print(",")
     }
     @objc func handleSubstractionButton(sender: UIButton){
+        result()
+        operating = true
+        operation = .substraction
         sender.shine()
-        print("-")
     }
     @objc func handleNumbersButton(sender: UIButton){
         sender.shine()
