@@ -48,6 +48,14 @@ class HomeViewController: UIViewController {
         return formatter
     }()
     
+    //MARK: - Formateo de valores por pantalla en formato cientifico
+    let printScientificFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .scientific
+        formatter.maximumFractionDigits = 3
+        formatter.exponentSymbol = "e"
+        return formatter
+    }()
     
     enum OperationType {
         case none, addition, substraction, multiplication, division, percent
@@ -72,6 +80,9 @@ class HomeViewController: UIViewController {
         label.textAlignment = .right
         label.backgroundColor = .black
         label.text = "0"
+        label.numberOfLines = 0
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -183,6 +194,7 @@ class HomeViewController: UIViewController {
         button.backgroundColor = darkGrayColor
         button.clipsToBounds = true
         button.round(buttonSize: self.buttonsSize)
+        button.tag = 4
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleNumbersButton), for: .touchUpInside)
         return button
@@ -196,6 +208,7 @@ class HomeViewController: UIViewController {
         button.backgroundColor = darkGrayColor
         button.clipsToBounds = true
         button.round(buttonSize: self.buttonsSize)
+        button.tag = 5
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleNumbersButton), for: .touchUpInside)
         return button
