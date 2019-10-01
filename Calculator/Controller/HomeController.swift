@@ -86,8 +86,34 @@ extension HomeViewController{
         sender.shine()
     }
     @objc func handleNumbersButton(sender: UIButton){
-        sender.shine()
+        
+        
+        acButton.setTitle("C", for: .normal)
+        var currentTemp = auxFormater.string(from: NSNumber(value: temp))!
+        if (!operating && currentTemp.count >= maxLenght){
+            return
+        }
+        
+        if operating {
+            total = total == 0 ? temp : total
+            operationLabel.text = ""
+            currentTemp = ""
+            operating = false
+        }
+        
+        if decimal{
+            currentTemp = "\(currentTemp)\(decimalSeparator)"
+            decimal = false
+        }
+        
+        
+        let number = sender.tag
+        temp = Double(currentTemp + String(number))!
+        operationLabel.text = printFormatter.string(from: NSNumber(value: temp))
+        
         print(sender.tag)
+        
+        sender.shine()
     }
     
     func clear(){
