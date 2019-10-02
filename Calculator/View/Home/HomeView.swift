@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class HomeViewController: UIViewController {
     
     //MARK: - Variables
@@ -82,7 +80,7 @@ class HomeViewController: UIViewController {
     var fifthLineButtonStackView  = UIStackView()
     
     let darkGrayColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
-    let orangeColor = UIColor(red: 254/255, green: 148/255, blue: 0, alpha: 1)
+    let orangeColor = UIColor(red: 254/255, green: 148/255, blue: 0/255, alpha: 1)
     
     lazy var operationLabel: UILabel = {
         let label = UILabel()

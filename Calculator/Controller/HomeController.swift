@@ -49,21 +49,31 @@ extension HomeViewController{
         sender.shine()
     }
     @objc func handleDivisionButton(sender: UIButton){
-        result()
+        if (operation != .none){
+            result()
+        }
         operating = true
         operation = .division
+        sender.selectOperation(selected: true)
         sender.shine()
     }
     @objc func handleMultiplicationButton(sender: UIButton){
-        result()
+        if (operation != .none){
+            result()
+        }
         operating = true
         operation = .multiplication
+        sender.selectOperation(selected: true)
         sender.shine()
     }
     @objc func handleAdditionButton(sender: UIButton){
-        result()
+        if (operation != .none){
+            result()
+        }
+        
         operating = true
         operation = .addition
+        sender.selectOperation(selected: true)
         sender.shine()
     }
     @objc func handleResultButton(sender: UIButton){
@@ -77,12 +87,16 @@ extension HomeViewController{
         }
         operationLabel.text = operationLabel.text! + decimalSeparator
         decimal = true
+        selectVisualOperation()
         sender.shine()
     }
     @objc func handleSubstractionButton(sender: UIButton){
-        result()
+        if (operation != .none){
+            result()
+        }
         operating = true
         operation = .substraction
+        sender.selectOperation(selected: true)
         sender.shine()
     }
     @objc func handleNumbersButton(sender: UIButton){
@@ -114,7 +128,7 @@ extension HomeViewController{
         temp = Double(currentTemp + String(number))!
         operationLabel.text = printFormatter.string(from: NSNumber(value: temp))
         
-        print(sender.tag)
+        selectVisualOperation()
         
         sender.shine()
     }
@@ -158,9 +172,54 @@ extension HomeViewController{
             operationLabel.text = printScientificFormatter.string(from: NSNumber(value: total))
         }
         else{
-            operationLabel.text =  printFormatter.string(from: NSNumber(value: total))
+            operationLabel.text = printFormatter.string(from: NSNumber(value: total))
         }
         
         operation = .none
+        selectVisualOperation()
+    }
+    
+    func selectVisualOperation(){
+        if !operating{
+            dividedByButton.selectOperation(selected: false)
+            timesButton.selectOperation(selected: false)
+            plusButton.selectOperation(selected: false)
+            minusButton.selectOperation(selected: false)
+            
+        }
+        else{
+            switch operation {
+            case .none, .percent:
+                dividedByButton.selectOperation(selected: false)
+                timesButton.selectOperation(selected: false)
+                plusButton.selectOperation(selected: false)
+                minusButton.selectOperation(selected: false)
+                break
+            case .addition:
+                plusButton.selectOperation(selected: true)
+                dividedByButton.selectOperation(selected: false)
+                timesButton.selectOperation(selected: false)
+                minusButton.selectOperation(selected: false)
+                break
+            case .substraction:
+                minusButton.selectOperation(selected: true)
+                dividedByButton.selectOperation(selected: false)
+                timesButton.selectOperation(selected: false)
+                plusButton.selectOperation(selected: false)
+                break
+            case .multiplication:
+                timesButton.selectOperation(selected: true)
+                dividedByButton.selectOperation(selected: false)
+                plusButton.selectOperation(selected: false)
+                minusButton.selectOperation(selected: false)
+                break
+            case .division:
+                dividedByButton.selectOperation(selected: true)
+                timesButton.selectOperation(selected: false)
+                plusButton.selectOperation(selected: false)
+                minusButton.selectOperation(selected: false)
+                break
+            }
+        }
     }
 }

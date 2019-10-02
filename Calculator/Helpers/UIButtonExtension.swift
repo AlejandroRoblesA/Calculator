@@ -8,7 +8,10 @@
 
 import UIKit
 
+let orangeColor = UIColor(red: 254/255, green: 148/255, blue: 0/255, alpha: 1)
+
 extension UIButton{
+    
     func round(buttonSize: CGFloat){
         layer.cornerRadius = buttonSize/2
         clipsToBounds = true
@@ -22,5 +25,10 @@ extension UIButton{
                 self.alpha = 1
             }
         }
+    }
+    
+    func selectOperation(selected: Bool){
+        backgroundColor = selected ? .white : orangeColor
+        setTitleColor(selected ? orangeColor : .white, for: .normal)
     }
 }
