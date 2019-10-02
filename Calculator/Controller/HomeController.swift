@@ -24,6 +24,9 @@ extension HomeViewController{
         setup()
         
         commaButton.setTitle(decimalSeparator, for: .normal)
+        
+        total = UserDefaults.standard.double(forKey: kTotal)
+        
         result()
     }
     
@@ -177,6 +180,8 @@ extension HomeViewController{
         
         operation = .none
         selectVisualOperation()
+        
+        UserDefaults.standard.set(total, forKey: kTotal)
     }
     
     func selectVisualOperation(){

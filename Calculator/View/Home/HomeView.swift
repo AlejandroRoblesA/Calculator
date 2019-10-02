@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
     //MARK: - Constantes
     let decimalSeparator = Locale.current.decimalSeparator!
     let maxLenght = 9
+    let kTotal = "total"
     
     //MARK: - Formateo de valores auxiliar
     let auxFormater: NumberFormatter = {
