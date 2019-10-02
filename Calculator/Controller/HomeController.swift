@@ -71,7 +71,7 @@ extension HomeViewController{
         sender.shine()
     }
     @objc func handleCommaButton(sender: UIButton){
-        let currentTemp = auxFormater.string(from: NSNumber(value: temp))!
+        let currentTemp = auxTotalFormater.string(from: NSNumber(value: temp))!
         if (!operating && currentTemp.count >= maxLenght){
             return
         }
@@ -87,12 +87,15 @@ extension HomeViewController{
     }
     @objc func handleNumbersButton(sender: UIButton){
         
-        
         acButton.setTitle("C", for: .normal)
-        var currentTemp = auxFormater.string(from: NSNumber(value: temp))!
+        
+        var currentTemp = auxTotalFormater.string(from: NSNumber(value: temp))!
+        
         if (!operating && currentTemp.count >= maxLenght){
             return
         }
+        
+        currentTemp = auxFormater.string(from: NSNumber(value: temp))!
         
         if operating {
             total = total == 0 ? temp : total
@@ -151,10 +154,13 @@ extension HomeViewController{
             break
         }
         
-        if total <= maxValue || total >= minValue{
-            operationLabel.text = printFormatter.string(from: NSNumber(value: total))
+        if let currentTotal = auxTotalFormater.string(from: NSNumber(value: total)), currentTotal.count > maxLenght{
+            operationLabel.text = printScientificFormatter.string(from: NSNumber(value: total))
+        }
+        else{
+            operationLabel.text =  printFormatter.string(from: NSNumber(value: total))
         }
         
-        print ("Total: \(total)")
+        operation = .none
     }
 }

@@ -22,8 +22,6 @@ class HomeViewController: UIViewController {
     //MARK: - Constantes
     let decimalSeparator = Locale.current.decimalSeparator!
     let maxLenght = 9
-    let maxValue: Double = 999999999
-    let minValue: Double = 0.00000001
     
     //MARK: - Formateo de valores auxiliar
     let auxFormater: NumberFormatter = {
@@ -32,9 +30,22 @@ class HomeViewController: UIViewController {
         formatter.groupingSeparator = ""
         formatter.decimalSeparator = locale.decimalSeparator
         formatter.numberStyle = .decimal
+        formatter.maximumIntegerDigits = 100
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 100
         return formatter
     }()
-    
+    //MARK: - Formateo de valores auxiliar
+    let auxTotalFormater: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.groupingSeparator = ""
+        formatter.decimalSeparator = ""
+        formatter.numberStyle = .decimal
+        formatter.maximumIntegerDigits = 100
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 100
+        return formatter
+    }()
     //MARK: - Formateo de valores por pantalla por defecto
     let printFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
